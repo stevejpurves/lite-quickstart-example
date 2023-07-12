@@ -1,0 +1,18 @@
+{
+  "name": "lite-quickstart-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "an example of a thebe-lite deployment",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:static": "copyfiles static/**/* dist -u 1",
+    "build": "npm run clean && npm run build:static",
+    "start": "npm run build && npx http-server dist -p 8000"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}
