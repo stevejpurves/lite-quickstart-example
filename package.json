@@ -4,9 +4,6 @@
   "private": true,
   "description": "an example of a thebe-lite deployment",
   "main": "index.js",
-  "workspaces": [
-    "thebe/packages/*"
-  ],
   "scripts": {
     "clean": "rimraf dist",
     "build:static": "copyfiles static/**/* dist -u 1",
@@ -17,14 +14,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "thebe": "^0.9.0-rc.7"
+    "thebe": "^0.9.0-rc.7",
+    "thebe-core": "^0.3.1",
+    "thebe-lite": "^0.3.1"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "nodemon": "^3.0.1",
     "rimraf": "^5.0.1"
-  },
-  "overrides": {
-    "@jupyterlab/codemirror": "3.6.5"
   }
 }
