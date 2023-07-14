@@ -4,18 +4,27 @@
   "private": true,
   "description": "an example of a thebe-lite deployment",
   "main": "index.js",
+  "workspaces": [
+    "thebe/packages/*"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "build:static": "copyfiles static/**/* dist -u 1",
-    "build": "npm run clean && npm run build:static",
-    "start": "npm run build && npx http-server dist -p 8000"
+    "build:thebe": "copy-thebe-assets dist lite,thebe",
+    "build": "npm run clean && npm run build:thebe && npm run build:static",
+    "start": "npm run build && nodemon --watch static --exec \"npm run build:static && npx -y http-server dist -p 8000\""
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "copyfiles": "^2.4.1"
+    "thebe": "^0.9.0-rc.7"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "nodemon": "^3.0.1",
     "rimraf": "^5.0.1"
+  },
+  "overrides": {
+    "@jupyterlab/codemirror": "3.6.5"
   }
 }
